@@ -1,25 +1,25 @@
-Copyright (c) 2009, AF83, All rights reserved
+# Morm
 
-You can ask for help and/or improvements or just say hi on the irc.freenode.org#morm channel
+## Features
 
 Morm is an attempt to create a nice and as powerfull as possible PHP orm.
 
 For now, Morm can handle:
 
-* Simple Object -> Table mapping
-* one to one relations
-* one to many relations
-* many to many relations (still in early alpha stage though)
-* polymorphism
-* STI
-* FullText search with Sphinx (http://www.sphinxsearch.com/)
+ * Simple Object -> Table mapping
+ * one to one relations
+ * one to many relations
+ * many to many relations (still in early alpha stage though)
+ * polymorphism
+ * STI
+ * FullText search with Sphinx (http://www.sphinxsearch.com/)
 
 thanks to the new Mormulous file, you can now use Morm in a very simple manner.
 
 all you have to do is:
 
 edit Mormulous.php
-The minimal config you can do is set the DB_NAME and DB_USER constants.
+The minimal config you can do is set the `DB_NAME` and `DB_USER` constants.
 You can also set the other Constants to match your requirements.
 
 Morm is now Usable.
@@ -29,8 +29,7 @@ Let's suppose you have a table named "post" in your database with a field called
 
 You can walk through its content by simply doing
 
-<?php
-
+```php
 require_once('Mormulous.php');
 
 $posts = new Mormons('post');
@@ -38,8 +37,7 @@ foreach($posts as $post)
 {
     echo $post->name."\n";
 }
-
---------------------------------------------------------------
+```
 
 You'll see that Morm will automagically generate a Model file called "post.php" in the MODELS_PATH and use it.
 
@@ -54,12 +52,18 @@ possible, in this case, if the model Morm is looking for does not exist, it will
 fail.
 If you want to avoid this behavior, just add
 
-        
-        protected $sti_field = NULL;
-
+```php        
+protected $sti_field = NULL;
+```
 
 in the corresponding model
 
 
+## License and questions
+Copyright (c) 2009-2014, AF83, All rights reserved
+BSD License
 
-Feel free to ask for improvements
+You can ask for help and/or improvements or just say hi on the **irc.freenode.org#morm** channel
+
+
+**Feel free to ask for improvements!**
