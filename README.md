@@ -2,7 +2,7 @@
 
 ## Features
 
-Morm is an attempt to create a nice and as powerfull as possible PHP orm.
+**Morm** is an attempt to create a nice and as powerfull as possible PHP [ORM](http://en.wikipedia.org/wiki/Object-relational_mapping).
 
 For now, Morm can handle:
 
@@ -11,21 +11,20 @@ For now, Morm can handle:
  * one to many relations
  * many to many relations (still in early alpha stage though)
  * polymorphism
- * STI
- * FullText search with Sphinx (http://www.sphinxsearch.com/)
+ * Single Table Inheritance also know as STI
+ * FullText search with [Sphinx](http://www.sphinxsearch.com/)
 
-thanks to the new Mormulous file, you can now use Morm in a very simple manner.
+Thanks to the new **Mormulous file**, you can now use Morm in a very simple manner.
 
-all you have to do is:
+All you have to do is edit `Mormulous.php`.
 
-edit Mormulous.php
 The minimal config you can do is set the `DB_NAME` and `DB_USER` constants.
 You can also set the other Constants to match your requirements.
 
 Morm is now Usable.
 
-Let's suppose you have a table named "post" in your database with a field called
-"name".
+Let's suppose you have a table named `post` in your database with a field called
+`name`.
 
 You can walk through its content by simply doing
 
@@ -33,19 +32,20 @@ You can walk through its content by simply doing
 require_once('Mormulous.php');
 
 $posts = new Mormons('post');
+
 foreach($posts as $post)
 {
-    echo $post->name."\n";
+    echo $post->name . PHP_EOL;
 }
 ```
 
-You'll see that Morm will automagically generate a Model file called "post.php" in the MODELS_PATH and use it.
+You'll see that Morm will **automagically generate a Model file** called `post.php` in the `MODELS_PATH` and use it.
 
 As soon as this model has been generated once, you can edit it at your
 conveniance.
 
 
-Be careful if you have a field called "type" in your table.
+Be careful if you have a field called `type` in your table.
 Morm will try to use the STI and load a class named after the content of this
 field. Eventhough Morm tries to guess things and be nice with you as much as
 possible, in this case, if the model Morm is looking for does not exist, it will
